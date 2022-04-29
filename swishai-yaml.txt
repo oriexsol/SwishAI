@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swishai-deployment
+spec:
+  selector:
+    matchLabels:
+      app: swishai
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: swishai
+    spec:
+      containers:
+      - name: swishai
+        image: oriexsol/swishai:latest
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: swishai-service
+spec:
+  selector:
+    app: swishai
+  ports:
+  - name: name-of-service-port
+    protocol: TCP
+    port: 9376
+    targetPort: 80
