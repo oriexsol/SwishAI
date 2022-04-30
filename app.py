@@ -29,7 +29,7 @@ if __name__ == '__main__':
     ip = get('https://api.ipify.org').content.decode('utf8')
     ExternalIP = ('My public IP address is: {}'.format(ip))
 
-    CPU_Model = "My CPU Model is: " + platform.processor()
+    CPU_Model = "My CPU Model is: " + platform.machine()
     print(CPU_Model)
 
     CPU_Cores = "The number of CPU Cores is: " + str(os.cpu_count())
