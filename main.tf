@@ -2,10 +2,16 @@ provider "kubernetes" {
   config_path    = "~/.kube/config"
 }
 
-resource "kubernetes_namespace" "example" {
-  metadata {
-    name = "my-first-namespace"
-  }
+variable "image" {
+  type = string
+}
+
+variable "port" {
+  type = string
+}
+
+variable "replicas" {
+  type = string
 }
 
 resource "kubernetes_deployment" "swishai" {
@@ -17,7 +23,7 @@ resource "kubernetes_deployment" "swishai" {
   }
 
   spec {
-    replicas = 2
+    replicas = var.replicas
     selector {
       match_labels = {
         App = "swishai"
@@ -31,7 +37,7 @@ resource "kubernetes_deployment" "swishai" {
       }
       spec {
         container {
-          image = "oriexsol/swishai:latest"
+          image = var.image
           name  = "swishai"
 
           port {
@@ -52,7 +58,7 @@ resource "kubernetes_service" "swishai_service" {
       App = "swishai"
     }
     port {
-      node_port   = 30201
+      node_port   = var.port
       port        = 80
       target_port = 80
     }
