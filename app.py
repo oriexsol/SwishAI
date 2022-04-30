@@ -6,7 +6,7 @@ import GPUtil
 
 
 app = Flask(__name__)
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def welcome():
     return data
 
