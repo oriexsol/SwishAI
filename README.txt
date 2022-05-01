@@ -16,7 +16,15 @@ Setup:
     Master Only!:
     a. terraform-setup.sh
     b. kube-master-start.sh
+    - NOTE: it will take several minutes
 4. Note the "Kubectl Join" command.
+5. Enter "Kubectl Join" comman on the Worker server.
+- NOTE: it will take several minuets
+6. setup Terraform Environment by the command:
+ - "terraform init"
+7. use terraform plan command to make sure evreythink is good:
+ - "terraform plan"
+8. apply the Terraform plan by the command:
+ - "terraform apply"
 
-    
-
+9. THATS IT!!!! you can reach the app by curl loaclhost:$port
