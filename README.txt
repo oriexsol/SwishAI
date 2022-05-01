@@ -16,7 +16,7 @@ Setup:
   - docker-setup.sh
   - terraform-setup.sh
   
-3. Run the following scripts as Root:
+3. Run the following scripts as Root(Sudo su):
     ALL NODES:
     a. docker-setup.sh
     b. kube-setup.sh
