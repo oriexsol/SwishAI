@@ -1,5 +1,6 @@
 Requierments:
-  - 2 Ubuntu 20.04 Focal Fossa LTS
+  - 1 Master Server - Ubuntu 20.04 Focal Fossa LTS
+  - 1 Worker Server - Ubuntu 20.04 Focal Fossa LTS
 
 Setup:
 1. Clone the following path by git and get thru the new path:
