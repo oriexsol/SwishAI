@@ -3,7 +3,7 @@ import platform
 import os
 import psutil
 import GPUtil
-import Flask
+from flask import Flask
 
 
 app = Flask(__name__)
