@@ -23,7 +23,7 @@ Setup:
     Master Only!:
     a. terraform-setup.sh
     b. kube-master-start.sh
-    - NOTE: it will take several minutes
+    - NOTE: it will take several minutes; If you get error on Kubeadm please run "kube-setup.sh" again!
     
 4. Note the "Kubectl Join" command.
 
