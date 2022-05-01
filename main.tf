@@ -1,5 +1,5 @@
-provider "kubernetes" {
-  config_path    = "~/.kube/config"
+variable "kubeconfig" {
+  type = string
 }
 
 variable "image" {
@@ -12,6 +12,10 @@ variable "port" {
 
 variable "replicas" {
   type = string
+}
+
+provider "kubernetes" {
+  config_path    = var.kubeconfig
 }
 
 resource "kubernetes_deployment" "swishai" {
