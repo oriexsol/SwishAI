@@ -1,13 +1,15 @@
+from flask import Flask
+from datetime import datetime
+import socket
 from requests import get
 import platform
 import os
 import psutil
 import GPUtil
-from flask import Flask
 
 
 app = Flask(__name__)
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def welcome():
     return data
 
@@ -16,8 +18,8 @@ def welcome():
 
 
 if __name__ == '__main__':
-    Tm = str((datetime.now().strftime('%Y-%m-%d %H:%M:%S')))
-    Tm = "Server time is: " + Tm
+    Tm = str(datetime.utcnow())
+    Tm = "Server UTC time is: " + Tm
 
     InternalIP = str(socket.gethostbyname(socket.gethostname()))
     InternalIP = "Server InternalIP is: " + InternalIP
@@ -44,7 +46,7 @@ if __name__ == '__main__':
     Memory = "Server size of the Memory is: " + str((psutil.virtual_memory()[0])/1024/1024/1024)[0:4] + "Gb"
 
     data = Tm + "<br/>" + InternalIP + "<br/>" + ExternalIP + "<br/>" + CPU_Model + "<br/>" + CPU_Cores + "<br/>" + GPU_Type + "<br/>" + Memory
-    
+
     # data = Tm + "\n" + InternalIP + "\n" + ExternalIP + "\n" + CPU_Model + "\n" + CPU_Cores + "\n" + GPU_Type + "\n" + Memory
 
-    app.run(host='0.0.0.0', port=80)  
+    app.run(host='0.0.0.0', port=80)
