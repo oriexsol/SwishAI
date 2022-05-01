@@ -10,12 +10,14 @@ Setup:
   
 2. Add execute permission to the following files:
   - kube-master-start.sh
-  - kube_setup.sh
+  - kube-setup.sh
+  - docker-setup.sh
   - terraform-setup.sh
   
 3. Run the following scripts as Root:
     ALL NODES:
-    a. kube_setup.sh
+    a. docker-setup.sh
+    b. kube-setup.sh
     Master Only!:
     a. terraform-setup.sh
     b. kube-master-start.sh
