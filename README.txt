@@ -23,7 +23,7 @@ Setup:
     Master Only!:
     a. terraform-setup.sh
     b. kube-master-start.sh
-    - NOTE: it will take several minutes; If you get error on Kubeadm please run "kube-setup.sh" again!
+    - NOTE: it will take several minutes; If you get an error on Kubeadm please run "kube-setup.sh" again!
     
 4. Note the "Kubectl Join" command.
 
@@ -39,6 +39,7 @@ Setup:
  
 8. setup Terraform Environment by the command:
  - "terraform init"
+ NOTE: If you get an error on Terraform please run "terraform-setup.sh" again!
  
 9. use terraform plan command to make sure evreythink is good:
  - "terraform plan"
